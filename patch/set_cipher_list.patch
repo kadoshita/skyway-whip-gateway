@@ -1,0 +1,13 @@
+diff --git a/rtcdtlstransport.py b/rtcdtlstransport.py
+index dfcdb38..fee441d 100644
+--- a/rtcdtlstransport.py
++++ b/rtcdtlstransport.py
+@@ -210,7 +210,7 @@ class RTCCertificate:
+
+         _openssl_assert(lib.SSL_CTX_use_certificate(ctx, self._cert._x509) == 1)  # type: ignore
+         _openssl_assert(lib.SSL_CTX_use_PrivateKey(ctx, self._key._evp_pkey) == 1)  # type: ignore
+-        _openssl_assert(lib.SSL_CTX_set_cipher_list(ctx, b"HIGH:!CAMELLIA:!aNULL") == 1)
++        _openssl_assert(lib.SSL_CTX_set_cipher_list(ctx, b"ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305") == 1)
+         _openssl_assert(
+             lib.SSL_CTX_set_tlsext_use_srtp(ctx, b"SRTP_AES128_CM_SHA1_80") == 0
+         )
